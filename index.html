@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>신호중 국어교사 | 자기주도학습 멘토</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans KR"', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#4F46E5', // Indigo 600
+                        secondary: '#0EA5E9', // Sky 500
+                        accent: '#F59E0B', // Amber 500
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #4F46E5, #0EA5E9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased overflow-x-hidden font-sans">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="#" class="flex items-center gap-2 group">
+                    <img src="./images/신호중 교포.png" alt="신호중학교 로고" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300">
+                </a>
+                <div class="hidden md:flex space-x-8 font-medium">
+                    <a href="#about" class="text-slate-600 hover:text-primary transition-colors">교육 철학</a>
+                    <a href="#club" class="text-slate-600 hover:text-primary transition-colors">자기주도 동아리</a>
+                    <a href="#planner" class="text-slate-600 hover:text-primary transition-colors">플래너 시스템</a>
+                    <a href="#contact" class="text-slate-600 hover:text-primary transition-colors">연락처</a>
+                </div>
+                <!-- Mobile menu button -->
+                <button class="md:hidden text-slate-600 hover:text-primary focus:outline-none" onclick="toggleMobileMenu()">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 pt-2 pb-4 space-y-1 shadow-lg absolute w-full">
+            <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-primary hover:bg-slate-50" onclick="toggleMobileMenu()">교육 철학</a>
+            <a href="#club" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-primary hover:bg-slate-50" onclick="toggleMobileMenu()">자기주도 동아리</a>
+            <a href="#planner" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-primary hover:bg-slate-50" onclick="toggleMobileMenu()">플래너 시스템</a>
+            <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-primary hover:bg-slate-50" onclick="toggleMobileMenu()">연락처</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden flex items-center min-h-screen">
+        <!-- Background decorations -->
+        <div class="absolute top-20 right-0 -mr-20 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-float"></div>
+        <div class="absolute bottom-20 left-10 w-72 h-72 bg-secondary rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-float" style="animation-delay: 1.5s;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center lg:text-left flex flex-col lg:flex-row items-center gap-12">
+            <div class="lg:w-1/2">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 border border-indigo-100 text-primary font-medium text-sm mb-6 animate-fade-in-up">
+                    <i class="fa-solid fa-location-dot"></i> 부산 신호중학교
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight mb-6 animate-fade-in-up" style="animation-delay: 0.1s;">
+                    스스로 <span class="text-gradient">질문</span>하고,<br>
+                    함께 <span class="text-gradient">성장</span>하는 배움
+                </h1>
+                <p class="text-lg md:text-xl text-slate-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
+                    아이들이 문학 속에서 삶의 의미를 발견하고,<br class="hidden md:block">
+                    플래너 위에 스스로의 내일을 기획할 수 있도록 돕는<br class="hidden md:block">
+                    든든한 교육 페이스메이커입니다.
+                </p>
+                <div class="flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <a href="#club" class="px-8 py-4 rounded-xl bg-primary text-white font-bold text-lg hover:bg-indigo-700 shadow-lg shadow-indigo-200 transition-all hover:-translate-y-1 whitespace-nowrap">
+                        동아리 활동 보기 <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#about" class="px-8 py-4 rounded-xl bg-white text-slate-700 font-bold text-lg border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all whitespace-nowrap">
+                        교사 소개
+                    </a>
+                    <a href="#contact" class="px-8 py-4 rounded-xl bg-secondary text-white font-bold text-lg hover:bg-sky-600 shadow-lg shadow-sky-200 transition-all hover:-translate-y-1 whitespace-nowrap">
+                        질문하기 <i class="fa-solid fa-comment-dots ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="lg:w-1/2 relative animate-fade-in-up" style="animation-delay: 0.4s;">
+                <div class="relative w-full max-w-lg mx-auto">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-primary to-secondary rounded-3xl transform rotate-3 opacity-20 blur-lg"></div>
+                    <img src="https://placehold.co/800x600/ffffff/4f46e5?text=Korean+Language+%26+Self-Directed+Learning" alt="교육 이미지" class="relative rounded-3xl shadow-2xl border border-white w-full object-cover aspect-[4/3]">
+                    
+                    <!-- Floating badge -->
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4 border border-slate-100 animate-float">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 text-xl">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-slate-500 font-medium">자기주도학습</p>
+                            <p class="font-bold text-slate-800">습관 형성 100%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="about" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-primary font-bold tracking-wide uppercase text-sm mb-2">My Philosophy</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">문해력의 바탕 위에 <br class="hidden md:block">주도성을 쌓아 올립니다</h3>
+                <p class="text-lg text-slate-600">국어는 모든 학습의 도구 교과입니다. 텍스트를 읽어내는 힘은 곧 자신의 삶을 읽고 기획하는 힘으로 이어집니다.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-slate-50 p-8 rounded-3xl hover:shadow-xl transition-shadow duration-300 border border-slate-100 reveal group">
+                    <div class="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center text-primary text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-4">깊이 있는 국어 수업</h4>
+                    <p class="text-slate-600 leading-relaxed">단순한 암기가 아닌, 비유와 상징을 이해하고 타인의 삶에 공감하는 능력을 기릅니다. 질문이 살아있는 교실을 만듭니다.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-slate-50 p-8 rounded-3xl hover:shadow-xl transition-shadow duration-300 border border-slate-100 reveal group" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center text-secondary text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-compass"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-4">자기주도적 방향 설정</h4>
+                    <p class="text-slate-600 leading-relaxed">누군가 시켜서 하는 공부가 아닌, 스스로 학습의 목표를 세우고 실천하는 '학습의 근육'을 단련시킵니다.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-slate-50 p-8 rounded-3xl hover:shadow-xl transition-shadow duration-300 border border-slate-100 reveal group" style="transition-delay: 200ms;">
+                    <div class="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center text-accent text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-handshake-angle"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-4">연대와 상호 관리</h4>
+                    <p class="text-slate-600 leading-relaxed">혼자서는 포기하기 쉬운 목표도, 친구들과 함께 플래너를 공유하고 응원하면 탄탄한 습관으로 자리 잡습니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Club Section -->
+    <section id="club" class="py-24 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <div class="inline-block px-4 py-2 bg-indigo-100 text-primary rounded-lg font-bold text-sm mb-4">
+                        동아리 활동
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">스스로 기획하고,<br>함께 피드백하는 동아리</h2>
+                    <p class="text-lg text-slate-600 mb-8">
+                        우리 동아리의 핵심은 <strong>'플래너'</strong>와 <strong>'상호 협력'</strong>입니다. 거창한 목표보다는 매일의 작은 성취(Small Wins)를 기록하고, 동료들과 긍정적인 피드백을 주고받습니다.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white shadow flex items-center justify-center flex-shrink-0 text-primary">
+                                <i class="fa-solid fa-pen-fancy"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xl font-bold text-slate-800 mb-2">1. 매일의 플래너 작성</h5>
+                                <p class="text-slate-600">학습 분량, 시간, 목표를 스스로 설정하고 달성 여부를 기록합니다. 메타인지 능력이 향상됩니다.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white shadow flex items-center justify-center flex-shrink-0 text-secondary">
+                                <i class="fa-solid fa-people-arrows"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xl font-bold text-slate-800 mb-2">2. 동료 상호 관리 (Peer Review)</h5>
+                                <p class="text-slate-600">정기적으로 플래너를 교환하며 멘토-멘티가 되어 서로의 계획과 실천을 점검하고 격려합니다.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white shadow flex items-center justify-center flex-shrink-0 text-accent">
+                                <i class="fa-solid fa-seedling"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xl font-bold text-slate-800 mb-2">3. 습관의 내면화</h5>
+                                <p class="text-slate-600">누군가의 강요가 아닌, 친구들과의 약속과 연대를 통해 건강한 공부 습관을 평생의 무기로 만듭니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal" id="planner">
+                    <!-- Interactive Planner Mockup -->
+                    <div class="bg-white p-6 md:p-8 rounded-3xl shadow-xl border border-slate-100 transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                        <div class="flex justify-between items-end mb-6 border-b-2 border-slate-100 pb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-slate-800 font-['Caveat',cursive]">My Daily Planner</h3>
+                                <p class="text-sm text-slate-500 mt-1">자기주도학습 동아리</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-primary font-bold text-lg">May 15</span>
+                                <span class="text-xs text-slate-400">D-Day 12 (중간고사)</span>
+                            </div>
+                        </div>
+
+                        <!-- Todo List -->
+                        <div class="space-y-4 mb-8">
+                            <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 cursor-pointer hover:bg-indigo-50 transition-colors">
+                                <input type="checkbox" checked class="mt-1 w-5 h-5 text-primary rounded border-slate-300 focus:ring-primary accent-primary">
+                                <div>
+                                    <span class="block text-slate-700 font-medium line-through opacity-70">국어 비문학 3지문 분석하기</span>
+                                    <span class="text-xs text-slate-400">소요시간: 40분</span>
+                                </div>
+                            </label>
+                            
+                            <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 cursor-pointer hover:bg-indigo-50 transition-colors">
+                                <input type="checkbox" checked class="mt-1 w-5 h-5 text-primary rounded border-slate-300 focus:ring-primary accent-primary">
+                                <div>
+                                    <span class="block text-slate-700 font-medium line-through opacity-70">수학 오답노트 정리</span>
+                                    <span class="text-xs text-slate-400">소요시간: 30분</span>
+                                </div>
+                            </label>
+
+                            <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 cursor-pointer hover:bg-indigo-50 transition-colors border border-indigo-100">
+                                <input type="checkbox" class="mt-1 w-5 h-5 text-primary rounded border-slate-300 focus:ring-primary accent-primary">
+                                <div>
+                                    <span class="block text-slate-800 font-bold">동아리 친구(민지) 플래너 피드백 남기기</span>
+                                    <span class="text-xs text-secondary font-medium">중요! 오늘까지 완료</span>
+                                </div>
+                            </label>
+                        </div>
+
+                        <!-- Peer Feedback Section -->
+                        <div class="bg-blue-50/50 rounded-2xl p-5 border border-blue-100 relative">
+                            <div class="absolute -top-3 -right-3 w-8 h-8 bg-accent rounded-full flex items-center justify-center text-white shadow-lg transform rotate-12">
+                                <i class="fa-solid fa-heart text-sm"></i>
+                            </div>
+                            <h4 class="text-sm font-bold text-slate-700 mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-comment-dots text-primary"></i> 짝꿍의 피드백
+                            </h4>
+                            <div class="bg-white p-3 rounded-xl shadow-sm">
+                                <p class="text-sm text-slate-600 font-medium italic">
+                                    "비문학 분석 꼼꼼하게 한 거 대단해! 나도 내일은 너처럼 시간 정해두고 풀어봐야겠어. 오늘도 수고했어! 👏"
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <section id="contact" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-primary rounded-full mix-blend-screen filter blur-[80px] opacity-30"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">학생들의 성장을 응원합니다</h2>
+            <p class="text-slate-300 mb-10 text-lg">
+                가정에서의 지지와 학교에서의 지도가 맞물릴 때 아이들은 가장 크게 성장합니다.<br>
+                교육 상담 및 동아리 문의는 언제든 환영합니다.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-16">
+                <div class="flex items-center gap-4 bg-slate-800 p-4 rounded-2xl border border-slate-700">
+                    <div class="w-12 h-12 bg-slate-700 rounded-full flex items-center justify-center text-primary text-xl">
+                        <i class="fa-solid fa-school"></i>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-xs text-slate-400 font-medium uppercase tracking-wider">Location</p>
+                        <p class="font-bold text-white">부산 신호중학교</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 bg-slate-800 p-4 rounded-2xl border border-slate-700 hover:border-primary transition-colors cursor-pointer" onclick="copyEmail()">
+                    <div class="w-12 h-12 bg-slate-700 rounded-full flex items-center justify-center text-secondary text-xl">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-xs text-slate-400 font-medium uppercase tracking-wider">Email (Click to copy)</p>
+                        <p class="font-bold text-white" id="teacher-email">teacher@shinho.ms.kr</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Toast Message for copy -->
+            <div id="toast" class="fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-full shadow-lg transition-opacity duration-300 opacity-0 pointer-events-none z-50 flex items-center gap-2">
+                <i class="fa-solid fa-check-circle"></i> 이메일 주소가 복사되었습니다!
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-slate-500 text-sm">© 2026 Korean Language Teacher & Self-Directed Learning Lab.</p>
+            <div class="flex gap-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-primary transition-colors"><i class="fa-brands fa-blogger-b"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-primary transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-md');
+                nav.classList.replace('py-4', 'py-0');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+
+        // Copy Email to Clipboard
+        function copyEmail() {
+            const email = document.getElementById('teacher-email').innerText;
+            
+            // Using execCommand as fallback for better iframe compatibility
+            const textArea = document.createElement("textarea");
+            textArea.value = email;
+            document.body.appendChild(textArea);
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                showToast();
+            } catch (err) {
+                console.error('Failed to copy', err);
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-0');
+            toast.classList.add('opacity-100');
+            
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0');
+            }, 3000);
+        }
+
+        // Scroll Reveal Animation Observer
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+    </script>
+</body>
+</html>
